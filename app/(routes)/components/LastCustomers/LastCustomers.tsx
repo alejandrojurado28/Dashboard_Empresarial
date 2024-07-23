@@ -1,5 +1,6 @@
 import CustomIcon from "@/components/CustomIcon/CustomIcon";
 import { Building } from "lucide-react";
+import { CustomersTable } from "../CustomersTable";
 
 export function LastCustomers() {
   return (
@@ -9,7 +10,7 @@ export function LastCustomers() {
             <p className="text-xl">Last customers</p>
         </div>
         <div>
-            <p>Customer table</p>
+            <CustomersTable />
         </div>
     </div>
   )

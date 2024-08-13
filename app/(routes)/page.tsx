@@ -6,8 +6,10 @@ import { LastCustomers } from "./components/LastCustomers";
 import { SalesDistributors } from "./components/SalesDistributors";
 import { TotalSuscribers } from "@/components/TotalSuscibers";
 import { ListIntegrations } from "./components/ListIntegrations";
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 
-export const dataCardsSummary = [
+const dataCardsSummary = [
   {
     icon: UserRound,
     total: "12.450",
@@ -32,6 +34,12 @@ export const dataCardsSummary = [
 ];
 
 export default function Home() {
+  const { userId } = auth()
+
+  if (!userId) {
+    redirect("/sign-in")
+  }
+
   return (
     <div>
       <h2 className="text-2xl mb-4">Dashboard</h2>
